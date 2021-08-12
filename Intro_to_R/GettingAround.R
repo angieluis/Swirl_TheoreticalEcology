@@ -14,7 +14,8 @@ pack_course()
 # first time
 install.packages("swirl")
 
-# setwd to where ever downloaded, then
+# move the file to wherever you want your class files
+# set that as the default working directory
 install_course(swc_path="Intro_to_R.swc")
 swirl()
 # what call you?

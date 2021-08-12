@@ -1,0 +1,199 @@
+- Class: meta
+  Course: Theoretical Ecology
+  Lesson: for() loops
+  Author: Angie Luis
+  Type: Standard
+  Organization: University of Montana
+  Version: 1.0
+
+- Class: text
+  Output: "Loops allow you to repeat some operation iteratively. For example,
+    repeat (loop) through elements in a vector and run the same code on each
+    element. There are several types of loops in R. Here, we will concentrate
+    on the for() loop. Other loops not covered here include while() and 
+    repeat(). You can see ?Control for more information."
+
+- Class: text
+  Output: "Loops allow you to automate parts of your code that are in need of
+    repetition. For example, suppose you want to do several printouts of the 
+    following form: 'The year is [year]' where [year] is equal to 2019, 2020,
+    up to 2025. Remember the paste() command?" 
+    
+- Class: cmd_question
+  Output: "You can use paste() to paste together the character string 
+      'The year is' and then the number 2019 into a new character string. 
+      Try it now."
+  CorrectAnswer: paste('The year is',2019)
+  AnswerTests: omnitest(correctVal="The year is 2019")
+  Hint: "Paste together 'The year is' with the number 2019 by typing
+        paste('The year is', 2019)"
+
+  
+- Class: text
+  Output: |-
+    Now, if you want R to print out this character string, but increasing
+    the year from 2019 up to 2025, you could write the command out multiple
+    times, changing the year each time as follows...  
+    
+      paste('The year is', 2019)  
+
+      paste('The year is', 2020)  
+
+      paste("The year is", 2021)
+  
+      paste("The year is", 2022)
+ 
+      paste("The year is", 2023)
+ 
+      paste("The year is", 2024)
+
+      paste("The year is", 2025)
+
+- Class: text
+  Output: |-
+    But that's a lot of typing. We can instead loop over the years
+    in the for() loop below.
+    
+      for (year in c(2019,2020,2021,2022,2023,2024,2025)){
+      
+        print(paste("The year is", year))
+      
+      }
+
+- Class: text
+  Output: There are several parts to a for() loop. The first line specifies the 
+    variable that is your index, here it is 'year'. And it specifies how many times 
+    and what values that index will take, here 2019 through 2025. So this loop will 
+    repeat the code within the curly brackets 7 times, each time changing the 'year' 
+    in the code to the new index. For example, the first time it runs through the 
+    loop, year will be 2019, the second time, year will be 2020, and so on, until 
+    it loops over all the values in the vector after 'in'.
+
+- Class: text
+  Output: After the end parenethesis for for() is an opening curly bracket. This 
+    specifies the start of the code that you want to run iteratively. It runs the 
+    code between the opening bracket { and the closing bracket } the number of times
+    and with indices specified.
+    
+- Class: text
+  Output: Code run in a loop doesn't automatically spit out (print) results. So here,
+    we have to tell specifically to print() the character string. The operation is not 
+    automatically saved within a loop either, so if we want to save the result, we need 
+    specific code for that, which we will get to in a minute.
+    
+- Class: cmd_question
+  Output: "In the above loop, we specifically wrote out our year indices as a vector with 
+  c(2019,2020,2021,2022,2023,2024,2025). This is not the most efficient way to write this. 
+  What's a better way to specify the vector?"
+  CorrectAnswer: 2019:2025
+  AnswerTests: omnitest(correctVal = 2019:2025)
+  Hint: 2019:2025 or seq(2019,2025) are both more efficient 
+
+- Class: text
+  Output: "The vector of indices can be specified in a number of ways- explicitly writing
+    out all the numbers with c(), using the ':' operator, or seq(), for example." 
+    
+- Class: cmd_question
+  Output: The indices do not have to be sequential. What if we wanted to pretend that the year 2020 never 
+    happened? How would we specify the vector, leaving out 2020?"
+  CorrectAnswer: c(2019, 2021:2025)
+  AnswerTests: omnitest(correctVal = c(2019, 2021:2025))
+  Hint: One way is c(2019, 2021:2025), though there are others.
+ 
+   
+- Class: text
+  Output: |- 
+    We can specify our indices for the loop in a vector beforehand. For example,
+
+        years.to.input <- c(2019, 2021:2025)
+        
+        for (year in years.to.input){
+        
+          print(paste("The year is", year))
+
+        }
+
+  
+ 
+  
+- Class: text
+  Output: |-
+    The result of the code run in a loop is not automatically saved. If we want to 
+    save the result, we need specific code for that. We will demonstrate this with 
+    a different example.
+    
+
+- Class: text
+  Output: In the following question you will be asked to modify a script that will
+    appear as soon as you move on from this question. When you have finished modifying
+    the script, save your changes to the script and type submit() and the script
+    will be evaluated. There will be some comments in the script that opens up, so be
+    sure to read them!
+
+- Class: script
+  Output: |-
+    Look over the script to produce your first for() loop. 
+    Delete the hashtag before 'out'. Make sure to save your
+    script before you type submit().
+  AnswerTests: test_loop1()
+  Hint: Make sure to delete the hastag before 'out' within the loop.
+  Script: first_loop.R
+
+- Class: text
+  Output: |-
+    Now, let's try a few different examples.
+    
+- Class: script
+  Output: |-
+    Look over the script to produce a for() loop to project a
+    population forward over 10 time steps assuming geometric growth.
+    Make sure to save your script. Then type submit().
+  AnswerTests: test_poploop()
+  Hint: Change the indexing from '2:5' to '2:10'.
+  Script: pop_loop.R
+
+- Class: script
+  Output: |-
+    Now try doing most of it yourself!
+    
+    Look over the script to produce a for() loop to project a
+    population forward over 15 time steps assuming geometric growth.
+    Make sure to save your script. Then type submit().
+  AnswerTests: test_poploop2()
+  Hint: Did you remember to set the starting population size of N[1]?
+  Script: pop_loop2.R
+
+- Class: text
+  Output: A lot of the time, for() loops are not the best option. They are less
+    efficient than other options, such as vectorization or the family of apply() 
+    functions. 
+    
+- Class: text
+  Output: |-
+    What is Vectorization?
+    
+    As the word suggest, vectorization is the operation of converting repeated 
+    operations on simple numbers (“scalars”) into single operations on vectors 
+    or matrices. You have seen several examples of this in previous tutorials.
+    
+- Class: cmd_question
+  Output: |-
+    For example, the loop above where we looped over years, could 
+    more efficiently be vectorized. Try typing the following:
+    
+    paste("The year is", 2019:2025)
+
+  CorrectAnswer: paste(The year is', 2019:2025)
+  AnswerTests: omnitest(correctVal = paste('The year is', 2019:2025))
+
+- Class: text
+  Output: |-
+    If possible, vectorization or apply() functions are much more efficient. However, 
+    especially with population growth models, for() loops are necessary and heavily
+    used.
+    
+- Class: text
+  Output: |-
+    See other lessons for apply() functions.
+    
+    
