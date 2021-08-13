@@ -6,6 +6,8 @@
   Organization: University of Montana
   Version: 2.2.11
 
+### I added apply() and deleted a few from the lapply sapply. still too long
+
 - Class: text
   Output: In this lesson, you'll learn how to use apply(), lapply() and sapply(), 
     the most important members of R's *apply family of functions, also known as 
@@ -90,16 +92,18 @@
   Hint: Type cls_list to view the result.
 
 - Class: cmd_question
-  Output: The 'l' in 'lapply' stands for 'list'. Type class(cls_list) to confirm that 
-  lapply() returned a list.
+  Output: |-
+    The 'l' in 'lapply' stands for 'list'. Type class(cls_list) to confirm that 
+    lapply() returned a list.
   CorrectAnswer: class(cls_list)
   AnswerTests: omnitest(correctExpr='class(cls_list)')
   Hint: Type class(cls_list) to confirm that lapply() returned a list.
 
 - Class: text
-  Output: As expected, we got a list of length 30 -- one element for each 
-  variable/column. The output would be considerably more compact if we could represent 
-  it as a vector instead of a list.
+  Output: |-
+    As expected, we got a list of length 30 -- one element for each 
+    variable/column. The output would be considerably more compact if we could represent 
+    it as a vector instead of a list.
 
 - Class: cmd_question
   Output: You may remember from a previous lesson that lists are most helpful for 
@@ -194,131 +198,6 @@
   AnswerTests: omnitest(correctExpr='sapply(flag_colors, sum)')
   Hint: Use sapply(flag_colors, sum) to return a vector of column sums.
 
-- Class: text
-  Output: Perhaps it's more informative to find the proportion of flags (out of 194) 
-    containing each color. Since each column is just a bunch of 1s and 0s, the 
-    arithmetic mean of each column will give us the proportion of 1s. (If it's not 
-    clear why, think of a simpler situation where you have three 1s and two 0s -- 
-    (1 + 1 + 1 + 0 + 0)/5 = 3/5 = 0.6).
-
-- Class: cmd_question
-  Output: Use sapply() to apply the mean() function to each column of flag_colors. 
-    Remember that the second argument to sapply() should just specify the name of the 
-    function (i.e. mean) that you want to apply.
-  CorrectAnswer: sapply(flag_colors, mean)
-  AnswerTests: omnitest(correctExpr='sapply(flag_colors, mean)')
-  Hint: sapply(flag_colors, mean) will do the trick!
-
-- Class: text
-  Output: In the examples we've looked at so far, sapply() has been able to 
-    simplify the result to vector. That's because each element of the list 
-    returned by lapply() was a vector of length one. Recall that sapply() 
-    instead returns a matrix when each element of the list returned by lapply() 
-    is a vector of the same length (> 1).
-
-- Class: cmd_question
-  Output: To illustrate this, let's extract columns 19 through 23 from the flags 
-    dataset and store the result in a new data frame called flag_shapes. 
-    flag_shapes <- flags[, 19:23] will do it.
-  CorrectAnswer: flag_shapes <- flags[, 19:23]
-  AnswerTests: omnitest(correctExpr='flag_shapes <- flags[, 19:23]')
-  Hint: flag_shapes <- flags[, 19:23] will save columns 19 through 23 in a new variable.
-
-- Class: text
-  Output: Each of these columns (i.e. variables) represents the number of times 
-    a particular shape or design appears on a country's flag. We are interested 
-    in the minimum and maximum number of times each shape or design appears.
-
-- Class: cmd_question
-  Output: The range() function returns the minimum and maximum of its first 
-    argument, which should be a numeric vector. Use lapply() to apply the 
-    range function to each column of flag_shapes. Don't worry about storing 
-    the result in a new variable. By now, we know that lapply() always returns 
-    a list.
-  CorrectAnswer: lapply(flag_shapes, range)
-  AnswerTests: omnitest(correctExpr='lapply(flag_shapes, range)')
-  Hint: Try lapply(flag_shapes, range) to apply the range() function to each 
-    column of flag_shapes.
-
-- Class: cmd_question
-  Output: Do the same operation, but using sapply() and store the result in 
-    a variable called shape_mat.
-  CorrectAnswer: shape_mat <- sapply(flag_shapes, range)
-  AnswerTests: omnitest(correctExpr='shape_mat <- sapply(flag_shapes, range)')
-  Hint: shape_mat <- sapply(flag_shapes, range) will apply the range() function 
-  to each column of flag_shapes and store the result in shape_mat.
-
-- Class: cmd_question
-  Output: View the contents of shape_mat.
-  CorrectAnswer: shape_mat
-  AnswerTests: any_of_exprs('shape_mat', 'print(shape_mat)')
-  Hint: Type shape_mat to view its contents.
-
-- Class: text
-  Output: Each column of shape_mat gives the minimum (row 1) and maximum 
-    (row 2) number of times its respective shape appears in different flags.
-
-- Class: cmd_question
-  Output: Use the class() function to confirm that shape_mat is a matrix.
-  CorrectAnswer: class(shape_mat)
-  AnswerTests: omnitest(correctExpr='class(shape_mat)')
-  Hint: class(shape_mat) returns the class of shape_mat.
-
-- Class: text
-  Output: As we've seen, sapply() always attempts to simplify the result 
-    given by lapply(). It has been successful in doing so for each of the 
-    examples we've looked at so far. Let's look at an example where sapply() 
-    can't figure out how to simplify the result and thus returns a list, no 
-    different from lapply().
-
-- Class: cmd_question
-  Output: When given a vector, the unique() function returns a vector with 
-    all duplicate elements removed. In other words, unique() returns a vector 
-    of only the 'unique' elements. To see how it works, try unique(c(3, 4, 5, 
-    5, 5, 6, 6)).
-  CorrectAnswer: unique(c(3, 4, 5, 5, 5, 6, 6))
-  AnswerTests: omnitest(correctExpr='unique(c(3, 4, 5, 5, 5, 6, 6))')
-  Hint: Do unique(c(3, 4, 5, 5, 5, 6, 6)) to see how the unique() function works.
-
-- Class: cmd_question
-  Output: We want to know the unique values for each variable in the flags 
-    dataset. To accomplish this, use lapply() to apply the unique() function 
-    to each column in the flags dataset, storing the result in a variable 
-    called unique_vals.
-  CorrectAnswer: unique_vals <- lapply(flags, unique)
-  AnswerTests: omnitest(correctExpr='unique_vals <- lapply(flags, unique)')
-  Hint: Try unique_vals <- lapply(flags, unique).
-
-- Class: cmd_question
-  Output: Print the value of unique_vals to the console.
-  CorrectAnswer: unique_vals
-  AnswerTests: any_of_exprs('unique_vals', 'print(unique_vals)')
-  Hint: Type unique_vals to view its contents.
-
-- Class: cmd_question
-  Output: "Since unique_vals is a list, you can use what you've learned 
-    to determine the length of each element of unique_vals (i.e. the number 
-    of unique values for each variable). Simplify the result, if possible. 
-    Hint: Apply the length() function to each element of unique_vals."
-  CorrectAnswer: sapply(unique_vals, length)
-  AnswerTests: omnitest(correctExpr='sapply(unique_vals, length)')
-  Hint: Apply the length() function to each element of the unique_vals list 
-    using sapply(). Remember, no parentheses after the name of the function 
-    you are applying (i.e. length).
-
-- Class: text
-  Output: The fact that the elements of the unique_vals list are all vectors 
-    of *different* length poses a problem for sapply(), since there's no obvious 
-    way of simplifying the result.
-
-- Class: cmd_question
-  Output: Use sapply() to apply the unique() function to each column of the 
-    flags dataset to see that you get the same unsimplified list that you got 
-    from lapply().
-  CorrectAnswer: sapply(flags, unique)
-  AnswerTests: omnitest(correctExpr='sapply(flags, unique)')
-  Hint: Use sapply(flags, unique) to apply the unique function to each column 
-    of flags, failing to simplify the result.
 
 - Class: text
   Output: Occasionally, you may need to apply a function that is not yet defined, 
@@ -378,7 +257,7 @@
   Hint: Type pop.mat to see the dataset.
 
 - Class: cmd_question
-  Output: How many time steps are the populations simulated for?
+  Output: How many time steps are the subpopulations simulated for?
   CorrectAnswer: 100
   AnswerTests: omnitest(correctVal=100)
   Hint: Look at the pop.mat matrix and the row names or dimensions.
@@ -398,7 +277,7 @@
     at each time step. (sum over the row)
 
 - Class: cmd_question
-  Output: Next, we might be interested in how the subpopulatoins are
+  Output: Next, we might be interested in how the subpopulations are
     different. Let's say we want to know the mean over the 100 time
     steps for each of the subpopulations. Then, we would want the
     mean of each column (subpopulation). So we want to apply
@@ -421,7 +300,7 @@
     We can specify our own function to calculate the harmonic mean
     as 
     
-    function(x){length(x)/sum(1/x)}. 
+    function(x){length(x)/sum(1/x)} 
     
     Apply that function to find the effective population size of each subpopulation.
   CorrectAnswer: apply(pop.mat,2,function(x){length(x)/sum(1/x)})
