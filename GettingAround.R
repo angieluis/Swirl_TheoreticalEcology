@@ -4,7 +4,7 @@
 
 
 # for me to turn into file that can be downloaded:
-set_lesson("Intro_to_R/Basic_Building_Blocks/lesson.yaml")
+set_lesson("Basic_Building_Blocks/lesson.yaml")
 pack_course()
 
 
@@ -14,9 +14,12 @@ pack_course()
 # first time
 install.packages("swirl")
 
+# every time
+library(swirl)
+
 # move the file to wherever you want your class files
 # set that as the default working directory
-install_course(swc_path="Intro_to_R.swc")
+install_course(swc_path="Swirl_TheoreticalEcology.swc")
 swirl()
 # what call you?
 
