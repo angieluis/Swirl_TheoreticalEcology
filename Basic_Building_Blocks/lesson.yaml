@@ -63,12 +63,11 @@
   AnswerTests: omnitest(correctExpr='x')
   Hint: Type x and press Enter. This will automatically print the value of x.
 
-- Class: cmd_question
+- Class: text
   Output: Be aware that R is case senstitive. Capital X and lowercase x are not the
-    same. Try typing X (capitalized) and see that it doesn't exist in your workpace 
-    (unless you didn't clear a previous workspace that contained an objected with this name).
-  CorrectAnswer: X
-  AnswerTests: omnitest(correctExpr='X')
+    same. If you type X (capitalized) you will get the error object 'X' not found. 
+    (unless you didn't clear a previous workspace that contained an object with this name).
+
   
 - Class: cmd_question
   Output: Notice that you now have an object called x in your workspace or environment. 
