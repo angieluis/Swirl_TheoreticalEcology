@@ -21,6 +21,7 @@ library(swirl)
 # set that as the default working directory
 
 # uninstall_course("Swirl_TheoreticalEcology") # if need to uninstall last version first
+# install_course(swc_path="/Users/angela.luis/Documents/Teaching/My Swirl Courses/Swirl_TheoreticalEcology.swc")
 
 install_course(swc_path="Swirl_TheoreticalEcology.swc")
 swirl()

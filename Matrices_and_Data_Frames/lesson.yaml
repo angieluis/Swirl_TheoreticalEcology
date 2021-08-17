@@ -92,9 +92,10 @@
   Hint: to view an element we use [row,column]
   
 - Class: text
-  Output: Just like with vectors, you can also pull out multiple elements at a
-  time using a vector rather than one number (e.g., with c()). For example, if 
-  I wanted row 2, columns 4 and 5, I would type my_matrix[2,4:5].
+  Output: |-
+    Just like with vectors, you can also pull out multiple elements at a
+    time using a vector rather than one number (e.g., with c()). For example, if 
+    I wanted row 2, columns 4 and 5, I would type my_matrix[2,4:5].
   
 - Class: cmd_question
   Output: Try pulling out the elements that are in row 3, columns 2 and 4.
@@ -103,10 +104,11 @@
   Hint: remember to use c() to concatenate the two column numbers [3,c(2,4)]
 
 - Class: text
-  Output: When subsetting a matrix, R expects you to specify both rows and columns 
-  with a comma in between. However, if you leave either space blank, it will assume
-  you want all the values. For example, my_matrix[3,] will return the third row and 
-  all columns, or in other words, the whole third row.
+  Output: |-
+    When subsetting a matrix, R expects you to specify both rows and columns 
+    with a comma in between. However, if you leave either space blank, it will assume
+    you want all the values. For example, my_matrix[3,] will return the third row and 
+    all columns, or in other words, the whole third row.
   
 - Class: cmd_question
   Output: Try viewing the whole fourth column.
@@ -126,7 +128,7 @@
 - Class: cmd_question
   Output: Now, look at the documentation for the matrix function and see if you can figure out how to create a matrix containing the same numbers (1-20) and dimensions (4 rows, 5 columns) by calling the matrix() function. Store the result in a variable called my_matrix2.
   CorrectAnswer: my_matrix2 <- matrix(1:20, nrow=4, ncol=5)
-  AnswerTests: calculates_same_value('matrix(1:20, nrow=4, ncol=5)'); expr_creates_var('my_matrix2')
+  AnswerTests: identical(my_matrix,my_matrix2) #calculates_same_value('matrix(1:20, nrow=4, ncol=5)'); expr_creates_var('my_matrix2')
   Hint: Call the matrix() function with three arguments -- 1:20, the number of rows, and the number of columns. Be sure to specify arguments by their proper names and store the result in my_matrix2 (not in my_matrix).
 
 - Class: cmd_question

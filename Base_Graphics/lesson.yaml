@@ -27,9 +27,10 @@
   Hint: Type data(cars) to load the data.
 
 - Class: text
-  Output: To fix ideas, we will work with simple data frames. Our main goal is to introduce 
-  various plotting functions and their arguments. All the output would look more interesting 
-  with larger, more complex data sets.
+  Output: |-
+    To fix ideas, we will work with simple data frames. Our main goal is to introduce 
+    various plotting functions and their arguments. All the output would look more interesting 
+    with larger, more complex data sets.
 
 - Class: cmd_question
   Output: Pull up the help page for cars.
@@ -38,8 +39,9 @@
   Hint: Type ?cars or help(cars) to view a help page with details on the car data frame.
 
 - Class: text
-  Output: As you can see in the help page, the cars data set has only two variables: 
-  speed and stopping distance. Note that the data is from the 1920s.
+  Output: |-
+    As you can see in the help page, the cars data set has only two variables: 
+    speed and stopping distance. Note that the data is from the 1920s.
 
 - Class: cmd_question
   Output: Run head() on the cars data.
@@ -48,11 +50,12 @@
   Hint: Type head(cars) to see the top of the cars data frame.
 
 - Class: text
-  Output: Before plotting, it is always a good idea to get a sense of the data. 
-  Key R commands for doing so include, dim(), names(), head(), tail() and summary().
-  Remember you can pause and play around at any time by typing play(). Swirl will
-  ignore what you do until you type nxt(), which will regain swirl's attention
-  and continue where you left off.
+  Output: |-
+    Before plotting, it is always a good idea to get a sense of the data. 
+    Key R commands for doing so include, dim(), names(), head(), tail() and summary().
+    Remember you can pause and play around at any time by typing play(). Swirl will
+    ignore what you do until you type nxt(), which will regain swirl's attention
+    and continue where you left off.
 
 #######################################################################
 ### update here. get rid of basic and always specify what you want....
@@ -63,20 +66,23 @@
   Hint: Type plot(cars) to create a plot of the cars data frame.
 
 - Class: text
-  Output: As always, R tries very hard to give you something sensible given the 
-  information that you have provided to it. First, R notes that the data frame 
-  you have given it has just two columns, so it assumes that you want to plot 
-  one column versus the other.
+  Output: |-
+    As always, R tries very hard to give you something sensible given the 
+    information that you have provided to it. First, R notes that the data frame 
+    you have given it has just two columns, so it assumes that you want to plot 
+    one column versus the other.
 
 - Class: text
-  Output: Second, since we do not provide labels for either axis, R uses the 
-  names of the columns. Third, it creates axis tick marks at nice round numbers 
-  and labels them accordingly. Fourth, it uses the other defaults supplied in plot().
+  Output: |-
+    Second, since we do not provide labels for either axis, R uses the 
+    names of the columns. Third, it creates axis tick marks at nice round numbers 
+    and labels them accordingly. Fourth, it uses the other defaults supplied in plot().
 
 - Class: text
-  Output: We will now spend some time exploring plot, but many of the topics 
-  covered here will apply to most other R graphics functions. Note that 'plot' 
-  is short for scatterplot.
+  Output: |-
+    We will now spend some time exploring plot, but many of the topics 
+    covered here will apply to most other R graphics functions. Note that 'plot' 
+    is short for scatterplot.
 
 - Class: cmd_question
   Output: Look up the help page for plot(). 
@@ -106,28 +112,32 @@
     signs included.
 
 - Class: text
-  Output: Note that there are other ways to call the plot command, i.e., using 
-  the "formula" interface. For example, we get a similar plot to the above with 
-  plot(dist ~ speed, cars). However, we will wait till later in the lesson before 
-  using the formula interface.
+  Output: |-
+    Note that there are other ways to call the plot command, i.e., using 
+    the "formula" interface. For example, we get a similar plot to the above with 
+    plot(dist ~ speed, cars). However, we will wait till later in the lesson before 
+    using the formula interface.
   
 - Class: cmd_question
-  Output: Use plot() command to show dist on the x-axis and speed on the y-axis 
-  from the cars data frame. This is the opposite of what we did above.
+  Output: |-
+    Use plot() command to show dist on the x-axis and speed on the y-axis 
+    from the cars data frame. This is the opposite of what we did above.
   CorrectAnswer: plot(x = cars$dist, y = cars$speed)
   AnswerTests: omnitest(correctExpr='plot(x = cars$dist, y = cars$speed)')
   Hint: Type plot(x = cars$dist, y = cars$speed) to create the plot.
 
 - Class: text
-  Output: It probably makes more sense for speed to go on the x-axis since stopping 
-  distance is a function of speed more than the other way around. So, for the rest 
-  of the questions in this portion of the lesson, always assign the arguments 
-  accordingly.
+  Output: |-
+    It probably makes more sense for speed to go on the x-axis since stopping 
+    distance is a function of speed more than the other way around. So, for the rest 
+    of the questions in this portion of the lesson, always assign the arguments 
+    accordingly.
 
 - Class: text
-  Output: In fact, you can assume that the answers to the next few questions are 
-  all of the form plot(x = cars$speed, y = cars$dist, ...) but with various arguments 
-  used in place of the ...
+  Output: |-
+    In fact, you can assume that the answers to the next few questions are 
+    all of the form plot(x = cars$speed, y = cars$dist, ...) but with various arguments 
+    used in place of the ...
 
 - Class: cmd_question
   Output: Recreate the plot with the label of the x-axis set to "Speed". 
@@ -247,13 +257,15 @@
   Hint: Type boxplot(formula = mpg ~ cyl, data = mtcars) to create the plot.
 
 - Class: text
-  Output: The plot shows that mpg is much lower for cars with more cylinders. 
-  Note that we can use the same set of arguments that we explored with plot() above 
-  to add axis labels, titles and so on.
+  Output: |-
+    The plot shows that mpg is much lower for cars with more cylinders. 
+    Note that we can use the same set of arguments that we explored with plot() above 
+    to add axis labels, titles and so on.
 
 - Class: text
-  Output: When looking at a single variable, histograms are a useful tool. hist() 
-  is the associated R function. Like plot(), hist() is best used by just passing in a single vector. 
+  Output: |-
+    When looking at a single variable, histograms are a useful tool. hist() 
+    is the associated R function. Like plot(), hist() is best used by just passing in a single vector. 
 
 - Class: cmd_question
   Output: Use hist() with the vector mtcars$mpg to create a histogram.

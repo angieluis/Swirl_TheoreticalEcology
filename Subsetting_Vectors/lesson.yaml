@@ -39,7 +39,7 @@
 - Class: cmd_question
   Output: How would you view just the fourth and sixth elements? 
   CorrectAnswer: x[c(4,6)]
-  AnswerTests: omnitest(correctExpr='x[1:10]')
+  AnswerTests: omnitest(correctExpr='x[c(4,6)]')
   Hint: view just the fourth and sixth elements with x[c(4,6)].
 
 - Class: text

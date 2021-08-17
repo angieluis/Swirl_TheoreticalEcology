@@ -198,6 +198,18 @@
   AnswerTests: omnitest(correctExpr='sapply(flag_colors, sum)')
   Hint: Use sapply(flag_colors, sum) to return a vector of column sums.
 
+- Class: cmd_question
+  Output: We want to know the unique values for each variable in the flags dataset. To accomplish this, use lapply() to apply the unique() function to each column in the flags dataset, storing the result in a variable called unique_vals.
+  CorrectAnswer: unique_vals <- lapply(flags, unique)
+  AnswerTests: omnitest(correctExpr='unique_vals <- lapply(flags, unique)')
+  Hint: Try unique_vals <- lapply(flags, unique).
+
+- Class: cmd_question
+  Output: Print the value of unique_vals to the console.
+  CorrectAnswer: unique_vals
+  AnswerTests: any_of_exprs('unique_vals', 'print(unique_vals)')
+  Hint: Type unique_vals to view its contents.
+
 
 - Class: text
   Output: Occasionally, you may need to apply a function that is not yet defined, 
