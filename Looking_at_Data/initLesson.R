@@ -14,3 +14,9 @@ names(plants) <- c('Scientific_Name', 'Duration', 'Active_Growth_Period',
                    'Foliage_Color', 'pH_Min', 'pH_Max',
                    'Precip_Min', 'Precip_Max',
                    'Shade_Tolerance', 'Temp_Min_F')
+
+# Make some factors
+plants$Scientific_Name <- factor(plants$Scientific_Name)
+plants$Duration <- factor(plants$Duration)
+plants$Active_Growth_Period <- factor(plants$Active_Growth_Period)
+plants$Foliage_Color <- as.character(plants$Foliage_Color)

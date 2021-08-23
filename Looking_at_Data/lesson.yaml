@@ -154,6 +154,31 @@
   AnswerTests: omnitest(correctExpr='table(plants$Active_Growth_Period)')
   Hint: table(plants$Active_Growth_Period) will display counts for each level of the factor variable.
 
+- Class: cmd_question
+  Output: |-
+    Notice that Foliage_Color is not a factor but a character string. This format is less
+    helpful for summarizing the data and for data analysis, so perhaps we want to convert it
+    to a factor. We can change this column of data to a factor by typing
+    
+    plants$Foliage_Color <- factor(plants$Foliage_Color)
+    
+    Try that now.
+  CorrectAnswer: plants$Foliage_Color <- factor(plants$Foliage_Color)
+  AnswerTests: omnitest(correctExpr='plants$Foliage_Color <- factor(plants$Foliage_Color)')
+  Hint: |-
+    Type plants$Foliage_Color <- factor(plants$Foliage_Color) to change that column 
+    from a character to a factor.
+
+- Class: cmd_question
+  Output: |-
+    Now look again at the summary and see that it gives you information about the 
+    different levels of the factor.
+  CorrectAnswer: summary(plants) 
+  AnswerTests: omnitest(correctExpr='summary(plants)')
+  Hint: |-
+    Type summary(plants) again or hit the up arraw a few types.
+
+
 - Class: text
   Output: |-
     Each of the functions we've introduced so far has its place in helping you to 

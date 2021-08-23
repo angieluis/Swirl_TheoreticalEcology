@@ -146,7 +146,9 @@
   Hint: Type plot(x = cars$speed, y = cars$dist, xlab = "Speed") to create the plot.
 
 - Class: cmd_question
-  Output: Recreate the plot with the label of the y-axis set to "Stopping Distance". 
+  Output: |-
+    Recreate the plot with the label of the y-axis set to "Stopping Distance" (without an x label). (Remember you
+    can hit the up arrow key to get previous commands, which you can edit.)
   CorrectAnswer: plot(x = cars$speed, y = cars$dist, ylab = "Stopping Distance")
   AnswerTests: omnitest(correctExpr='plot(x = cars$speed, y = cars$dist, ylab = "Stopping Distance")')
   Hint: Type plot(x = cars$speed, y = cars$dist, ylab = "Stopping Distance") to create the plot.
