@@ -6,8 +6,8 @@
 }
 
 # Path to installed lesson
-.lessonpath <- file.path(.get_course_path(), "R_Programming",
-                         "lapply_and_sapply")
+.lessonpath <- file.path(.get_course_path(), "Swirl_TheoreticalEcology",
+                         "Apply_functions")
 # Path to dataset
 .datapath <- file.path(.lessonpath, "flag.data.txt")
 # Load dataset
